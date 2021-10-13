@@ -1,7 +1,6 @@
 ''' PyQt5 依赖 '''
-from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
-from PyQt5.QtCore import Qt, QDateTime, QTimer, pyqtBoundSignal, pyqtSignal
+from PyQt5.QtCore import Qt, QDateTime, QTimer, pyqtSignal
 from PyQt5.QtGui import QImage, QPixmap, QIcon
 from PyQt5.uic import loadUi
 from threading import *
