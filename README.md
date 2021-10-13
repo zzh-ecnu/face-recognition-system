@@ -18,10 +18,10 @@
 ---
 
 **仓库结构**：
-1. pics：存放图标以及证件照片（证件照片请自行上传）。
-2. app.py：程序启动入口。
-3. client.ui：Qt Designer打包出的前台静态界面。
-4. requirements.txt：环境依赖。
+1. app.py：程序启动入口。
+2. requirements.txt：环境依赖。
+3. pics：存放logo以及抓拍的监控照片。
+4. client.ui：Qt Designer打包出的前台静态界面。
 
 ---
 
