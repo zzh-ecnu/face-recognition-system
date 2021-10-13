@@ -2,7 +2,7 @@
 
 **介绍：** 本系统采用人脸1：1验证，使用者需要事先提供证件照，然后在具有摄像头的设备上采集监控照，进行人脸识别即可。
 
-<img src="./pics/gui.png" width=80% alt="demo" />
+<img src="./pics/gui.png" width=62% alt="demo" />
 
 ---
 
