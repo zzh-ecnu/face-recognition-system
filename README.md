@@ -10,8 +10,10 @@
 
 ---
 
-**开发工具：** 前台（Qt Designer）耦合（PyQt5）后台
-（insightface）
+**开发工具：** 
+1. 前台（Qt Designer）
+2. 耦合（PyQt5）
+3. 后台（insightface）
 
 **仓库结构**：
 1. pics：存放图标以及证件照片（证件照片请自行上传）。
