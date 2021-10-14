@@ -54,11 +54,14 @@ class MyMainWindow(QMainWindow):
         self.helpBook.triggered.connect(self.helpBookFunc)
         self.aboutMe.triggered.connect(self.aboutMeFunc)
 
-        ''' 人脸验证结果弹窗 '''
+        ''' 人脸验证信号 '''
         self.signal.connect(self.messageBox)
 
+    ''' 人脸验证结果弹窗 '''
     def messageBox(self, sim):
-        if sim > 0.24: QMessageBox.information(self, "人脸1：1验证", "通过！", QMessageBox.Ok) 
+        self.pbStopFunc() # 停止进度条
+        if sim == -1: QMessageBox.information(self, "提醒", "证件照或监控照缺失！", QMessageBox.Ok)
+        elif sim > 0.24: QMessageBox.information(self, "人脸1：1验证", "通过！", QMessageBox.Ok) 
         else: QMessageBox.information(self, "人脸1：1验证", "不通过！", QMessageBox.Ok)       
 
     ''' 加载日期时间 '''
@@ -131,7 +134,7 @@ class MyMainWindow(QMainWindow):
     def faceRecogFunc(self):
         self.pbRunFunc() # 开启进度条
         if self.id_photo is None or self.monitor_photo is None:
-            QMessageBox.information(self, "提醒", "证件照或监控照缺失！", QMessageBox.Ok)
+            self.signal.emit(-1) # 发射弹窗信号
             return
         face1, face2 = self.app.get(self.id_photo), self.app.get(self.monitor_photo)
         feat1 = np.array(face1[0].normed_embedding, dtype=np.float32)
@@ -139,8 +142,7 @@ class MyMainWindow(QMainWindow):
         sim = np.dot(feat1, feat2.T)
         print("sim:", sim) # 控制台打印
         self.signal.emit(sim) # 发射弹窗信号
-        self.pbStopFunc() # 停止进度条
-
+        
     ''' 开启进度条 '''
     def pbRunFunc(self):
         self.pb.setMinimum(0)
