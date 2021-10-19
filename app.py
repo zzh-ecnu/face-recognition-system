@@ -50,7 +50,6 @@ class MyMainWindow(QMainWindow):
         self.takePhoto.triggered.connect(self.takePhotoFunc)
         self.savePhoto.triggered.connect(self.savePhotoFunc)
         self.faceRecog.triggered.connect(self.faceRecogWrapper)
-        self.faceRecog.triggered.connect(self.pbRunFunc)
         self.helpBook.triggered.connect(self.helpBookFunc)
         self.aboutMe.triggered.connect(self.aboutMeFunc)
 
